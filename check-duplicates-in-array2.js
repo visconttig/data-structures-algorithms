@@ -6,10 +6,9 @@
 *    >>>>>>>>>>>>>       O(N)             
 */
 
-const numbers = [2, 5, 7, 9, 0, 3];
+const numbers = [2, 5, 7, 9, 0, 0, 3];
 
 const checkDuplitactesInArray = (array) => {
-    let steps = 0;
     let foundNumbers = [];
     for(let i = 0; i < array.length; i++){
         if(foundNumbers[array[i]] === 1){  // if there is a number 1, this number was already found*
@@ -17,11 +16,8 @@ const checkDuplitactesInArray = (array) => {
         }
 
         foundNumbers[array[i]] = 1;
-        steps++;
-        console.log(`step: ${steps}`);
     }
 
-    console.log(`Total steps: ${steps}`);
     return false;
 }
 
