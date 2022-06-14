@@ -3,6 +3,12 @@
  *      Sorting an array using bubble sort.
  */
 
+const swap = (indexA, indexB, array) => {
+    let temp = array[indexA];
+    array[indexA] = array[indexB];
+    array[indexB] = temp;
+}
+
 
 function bubbleSort(numbersArray){
     // log array initial order 
@@ -14,9 +20,7 @@ function bubbleSort(numbersArray){
         sorted = true;
         for(let i = 0; i < unsortedUntilIndex ; i++){
                 if(numbersArray[i] > numbersArray[i + 1]){
-                    let temp = numbersArray[i];
-                    numbersArray[i] = numbersArray[i + 1];
-                    numbersArray[i + 1] = temp;
+                    swap(i, i+1, numbersArray);
                     sorted = false;
                 } 
                            
@@ -28,10 +32,11 @@ function bubbleSort(numbersArray){
 }
 
 
-let numbersArray = [];
-const MAX = 100;
-const MIN = 0;
+
 function createRandomArray(arraySize = 3){
+let numbersArray = [];
+const MAX = arraySize;
+const MIN = 0;
     for(let i=0; i < arraySize; i++){
         let randomNumber = (Math.floor(((Math.random()) * MAX - MIN + 1) + MIN));
         numbersArray.push(randomNumber);
@@ -42,4 +47,4 @@ function createRandomArray(arraySize = 3){
 
 
 
-bubbleSort(createRandomArray(100));
+bubbleSort(createRandomArray(50));
